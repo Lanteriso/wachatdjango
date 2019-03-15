@@ -16,16 +16,17 @@ def getResponse(_info):
 	r = requests.post(apiUrl, data=data).json()
 	return r
 
-@itchat.msg_register(itchat.content.TEXT,TEXT,isGroupChat=True)
-def text_reply(msg):
-    return getResponse(msg["Text"])["text"]
+
 
 # Create your views here.
-def home(ass):
+def home(request):
 	import shutil
 	shutil.copy('QR.png', 'static/QR.png')
 	return render( 'wechat/home.html')
-def qr(ass):
+def qr(request):
+	@itchat.msg_register(itchat.content.TEXT, TEXT, isGroupChat=True)
+	def text_reply(msg):
+		return getResponse(msg["Text"])["text"]
 	itchat.auto_login(hotReload=True)
 	print("登陆中")
 	itchat.run()
