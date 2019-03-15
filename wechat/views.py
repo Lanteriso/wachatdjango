@@ -28,7 +28,7 @@ def qr(request):
 	@itchat.msg_register(itchat.content.TEXT, TEXT, isGroupChat=True)
 	def text_reply(msg):
 		return getResponse(msg["Text"])["text"]
-	itchat.auto_login(hotReload=True)
+	itchat.auto_login(enableCmdQR=True)
 	print("登陆中")
 	itchat.run()
 	print("登陆结束")
