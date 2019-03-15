@@ -21,8 +21,9 @@ def getResponse(_info):
 # Create your views here.
 def home(request):
 	import shutil
+
 	shutil.copy('QR.png', 'static/QR.png')
-	return render( 'wechat/home.html')
+	return render(request,'wechat/home.html')
 def qr(request):
 	@itchat.msg_register(itchat.content.TEXT, TEXT, isGroupChat=True)
 	def text_reply(msg):
@@ -31,7 +32,7 @@ def qr(request):
 	print("登陆中")
 	itchat.run()
 	print("登陆结束")
-	return render( 'wechat/home.html')
+	return render(request, 'wechat/qr.html')
 
 
 
