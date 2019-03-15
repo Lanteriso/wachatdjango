@@ -27,7 +27,7 @@ def home(request):
 	itchat.auto_login(enableCmdQR=True)
 	print("登陆中")
 	itchat.run()
-	print("登陆结束")
+	print("登陆结束")#
 	return render(request, 'wechat/qr.html')
 def qr(request):
 
