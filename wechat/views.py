@@ -25,6 +25,7 @@ def home(request):
 	shutil.copy('QR.png', 'static/QR.png')
 	return render(request,'wechat/home.html')
 def qr(request):
+	print("来了")
 	@itchat.msg_register(itchat.content.TEXT, TEXT, isGroupChat=True)
 	def text_reply(msg):
 		return getResponse(msg["Text"])["text"]
