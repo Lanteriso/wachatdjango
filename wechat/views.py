@@ -21,13 +21,15 @@ def text_reply(msg):
     return getResponse(msg["Text"])["text"]
 
 # Create your views here.
-def home():
+def home(ass):
 	import shutil
 	shutil.copy('QR.png', 'static/QR.png')
 	return render( 'wechat/home.html')
-def qr():
+def qr(ass):
 	itchat.auto_login(hotReload=True)
+	print("登陆中")
 	itchat.run()
+	print("登陆结束")
 	return render( 'wechat/home.html')
 
 
