@@ -1,1 +1,1 @@
-web: gunicorn wxjd.wsgi --log-file -
+web: gunicorn herokudemo.wsgi --log-file -
